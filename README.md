@@ -59,30 +59,48 @@ Compare the original, eroded, and dilated images.
 
 ## Developed By
 
-**Name:** ____________________________
+**Name:** Apshara Priyadharshini M
 
-**Register No:** ______________________
+**Register No:** 212225040026
 
 ## Output
 
 ### Original Image
+```
+import cv2
+import matplotlib.pyplot as plt
+img = cv2.imread("nature.jpeg")
+plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+plt.title("Original Image")
+plt.axis("off")
+plt.show()
+```
+<img width="915" height="565" alt="image" src="https://github.com/user-attachments/assets/bb2bfa3a-f9e4-488e-86e2-98db4e25f69a" />
 
-- A text image containing characters is displayed.
-- The image serves as the input for morphological processing.
 
 ### Erosion
+```
+kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))
+erosion = cv2.erode(img, kernel, iterations=1)
+plt.imshow(erosion, cmap="gray")
+plt.title("Image Erosion")
+plt.axis("off")
+plt.show()
+```
+<img width="915" height="570" alt="image" src="https://github.com/user-attachments/assets/09d2c823-8779-4a8d-8240-49cf7b97782d" />
 
-- Original image is displayed.
-- Eroded image is displayed.
-- The thickness of the characters is reduced.
-- Object boundaries shrink inward.
 
 ### Dilation
+```
+kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))
+dilation = cv2.dilate(img, kernel, iterations=1)
+plt.imshow(dilation, cmap="gray")
+plt.title("Image Dilation")
+plt.axis("off")
+plt.show()
+```
+<img width="891" height="560" alt="image" src="https://github.com/user-attachments/assets/3ef0765d-c324-4679-a4b2-a78adf1b0ffb" />
 
-- Original image is displayed.
-- Dilated image is displayed.
-- The thickness of the characters increases.
-- Object boundaries expand outward.
 
 ## Result
 
